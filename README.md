@@ -30,12 +30,12 @@ Upload Asset  →  Analysis  →  Insights
 
 | Feature | Description |
 |---|---|
-| 🎬 **Multi-modal Ingestion** | Ingest competitor video campaigns (URL/file) with optional print art attachments |
-| 🖼️ **Creative Critique** | Extract visual design, composition, and aesthetic critique of print ads via Kimi 2.6 |
-| 🧠 **Dual-Layer Semantic Search** | Search over campaign transcripts and scene indexes simultaneously in natural language |
+| 🎬 **Multi-modal Ingestion** | Ingest competitor video campaigns (remote URL scrape via **Bright Data** proxies or local file upload) with optional print art |
+| 🖼️ **Creative Critique** | Extract visual design, composition, and aesthetic critique of print ads via **Kimi 2.6 / SenseNova** vision models |
+| 🧠 **Dual-Layer Search** | Search over campaign transcripts and scene timelines simultaneously using natural language indexing powered by **VideoDB** |
 | 📊 **Brand Aesthetics Insights** | Interactive dashboards showing dynamic color palettes, slogans, and 4 narrative pacing beats |
 | 🗂️ **Typography Matrix** | Real-time typeface and font hierarchy matches (Serif vs Sans-Serif allocations) |
-| 📹 **HLS Video Playback** | Native adaptive streaming support via HLS.js |
+| 📹 **HLS Video Playback** | Native adaptive streaming support hosted on **VideoDB** and played via HLS.js |
 | 🖥️ **Dashboard** | High-level metrics tracking recent campaigns, sentiment, and sector activity |
 
 ---
@@ -59,8 +59,10 @@ The **Upload Asset** button in the top-right opens the ingestion console directl
 | Frontend | React 19 + TypeScript + Vite |
 | Styling | Tailwind CSS v4 |
 | Backend | Node.js + Express |
-| AI | Kimi 2.6
-| Video | HLS.js (adaptive streaming) |
+| AI & LLM | Kimi 2.6 & SenseNova API |
+| Video DB / Indexing | VideoDB (transcription, scene slicing, stream hosting) |
+| Proxy / Scraping | Bright Data (anti-bot bypass web scraping proxies) |
+| Video Playback | HLS.js (adaptive streaming) |
 | Icons | Lucide React |
 | Animation | Motion (Framer Motion) |
 
