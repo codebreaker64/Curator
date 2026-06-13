@@ -1,0 +1,6 @@
+{
+  "name": "Curator - Video Intelligence Platform",
+  "description": "Real-time competitor media intelligence and automated video RAG platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
