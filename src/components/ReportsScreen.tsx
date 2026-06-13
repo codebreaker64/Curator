@@ -73,13 +73,24 @@ export default function ReportsScreen({ reportsData, isLoading, onRefresh, video
   };
   const typographyRatios = selectedAsset?.typographyRatios || getTypographyRatios(selectedAsset);
 
-  // 3. Narrative pacing beats mapped from visualScenes, narrowed to exactly 4 main points
-  const pacingBeats = (selectedAsset?.pacingBeats || selectedAsset?.visualScenes?.map((scene: any) => ({
-    time: formatSec(scene.start),
-    name: scene.label,
-    desc: `Visual scene alignment pacing running from ${formatSec(scene.start)} to ${formatSec(scene.end)}.`,
-    color: scene.color
-  })) || []).slice(0, 4);
+  // 3. Narrative pacing beats split into four equal parts of the video
+  const pacingBeats = selectedAsset?.pacingBeats || (() => {
+    const duration = selectedAsset?.durationSec || 60;
+    const quarter = duration / 4;
+    return Array.from({ length: 4 }).map((_, idx) => {
+      const startSec = Math.floor(idx * quarter);
+      const endSec = Math.floor((idx + 1) * quarter);
+      const sceneAtTime = selectedAsset?.visualScenes?.find((s: any) => s.start >= startSec && s.start < endSec) || selectedAsset?.visualScenes?.[idx];
+      const label = sceneAtTime?.label || `Sequence Phase ${idx + 1}`;
+      const color = sceneAtTime?.color || (idx === 0 ? "#1A1A1A" : idx === 1 ? "#4A5D70" : idx === 2 ? "#C47B5F" : "#747878");
+      return {
+        time: formatSec(startSec),
+        name: label,
+        desc: `Visual scene alignment pacing segment running from ${formatSec(startSec)} to ${formatSec(endSec)}.`,
+        color: color
+      };
+    });
+  })();
 
   // 4. Dynamic Sentiment trend
   const sentimentTrend = [
