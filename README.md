@@ -3,11 +3,6 @@
 > A competitive intelligence platform for ingesting, analyzing, and deriving strategic insights from brand campaign videos using AI.
 
 
-
-https://github.com/user-attachments/assets/d53d0151-daaa-47d2-8e32-e6d5e0bb1ce0
-
-
-
 ---
 
 ## What is Curator?
